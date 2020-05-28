@@ -1,0 +1,66 @@
+/* components/comment/index.wxss */
+.comment{
+  width: 100%;
+  display: flex;
+}
+/* 头像 */
+.comment .pic {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  margin-right: 8px;
+  position: relative;
+  margin-right: 5px;
+}
+.comment .pic::before{
+  position: absolute;
+  z-index: 2;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  border-radius: 50%;
+  pointer-events: none;
+  box-sizing: border-box;
+  transform-origin: top left;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  transform: scale(0.333333);
+}
+.comment .pic image {
+  width: 100%;
+}
+.comment .info{
+  flex: 1;
+}
+.comment .info .title{
+  display: flex;
+
+}
+.comment .info .title .who-mesg{
+  flex: 1;
+  font-size: 10px;
+  color: rgba(102, 99, 99, 0.679);
+}
+
+.comment .info .title .who-mesg .who,.comment .info .title .who-mesg .date{
+  margin: 5px 0;
+}
+.comment .info .title .zan{
+  width: 40px;
+  font-size: 12px;
+  color:  rgba(102, 99, 99, 0.679);
+  text-align: end;
+}
+.comment .info .title .zan van-icon{
+  margin-right: 5px;
+  font-size: 16px;
+  vertical-align: bottom;
+}
+.comment .info .content{
+  font-size: 12px;
+}
+.comment .info .content .comment-content{
+  margin: 5px 0 20px;
+}

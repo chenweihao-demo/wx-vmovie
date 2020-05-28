@@ -1,0 +1,27 @@
+<!--components/comment/index.wxml-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+<view class="comment">
+	<view class="pic">
+		<image mode="widthFix" src="{{commentData.userinfo.avatar}}" />
+	</view>
+	<view class="info">
+		<view class="title">
+			<view class="who-mesg">
+				<view class="who">{{commentData.userinfo.username}}</view>
+				<view class="date">{{tools.parseData(commentData.addtime)}}</view>
+			</view>
+			<view class="zan">
+				<van-icon name="good-job-o" />{{commentData.count_approve}}</view>
+		</view>
+		<view class="content">
+			<view class="comment-content">
+       <text wx:if="{{commentData.reply_userinfo}}">回复 {{commentData.reply_userinfo.username}}：</text>
+				{{commentData.content}}
+			</view>
+			<view wx:if="commentData.subcomment">
+				<comment-card  wx:for="{{commentData.subcomment}}" wx:key="index" commentData="{{item}}"></comment-card>
+			</view>
+
+		</view>
+	</view>
+</view>

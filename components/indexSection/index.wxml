@@ -1,0 +1,7 @@
+<!--components/indexSection/index.wxml-->
+<view class="{{special?'section special':'section'}}" >
+    <h3 class="h3">
+      <slot></slot>
+    </h3>
+    <post-card wx:for="{{items}}" post="{{item}}" wx:key="index"></post-card>
+  </view>

@@ -1,0 +1,7 @@
+<!--pages/posts/posts.wxml-->
+<post-card wx:for="{{posts}}" wx:key="index" post="{{item}}"></post-card>
+
+<van-loading size="18px" text-size="10px" color="#1989fa" wx:if="{{showLoading}}" >加载中...</van-loading>
+
+<!-- 在页面内添加对应的节点 -->
+<van-notify id="van-notify" />

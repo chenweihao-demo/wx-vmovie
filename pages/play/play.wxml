@@ -1,0 +1,54 @@
+<!--pages/play/play.wxml-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+<video id="myVideo" object-fit="fill" style="width:100%" poster="{{postView.image}}" src="https://api.kele8.cn/pic/{{postView.content_video[0].progressive[3]?postView.content_video[0].progressive[3].url:postView.content_video[0].progressive[2].url}}" show-center-play-btn='{{ture}}' show-play-btn="{{true}}" controls></video>
+<!-- <view>{{postView.content_video[0].progressive[3].url}}</view> -->
+<view class="content" >
+<view class="loadingsearch" wx:if="{{showloading}}"><van-loading color="#1989fa" /></view>
+<!-- 简介 -->
+  <view class="brief-introduction" wx:if="{{postView.title}}">
+    <view class="title">{{postView.title}}</view>
+    <view class="info">
+      {{postView.cate}} / {{tools.parseTime(postView.duration)}}
+    </view>
+    <view class="content">{{postView.intro}}</view>
+    <view class="more" data-textcontent="{{postView.format_content}}"  bindtap="allTextContent">阅读全文→</view>
+  </view>
+  <!-- 作者 -->
+  <view class="author" wx:if="{{postView.author}}">
+    <view class="pic"><image mode="widthFix" src="{{postView.author.profile.avatar}}"/></view>
+    <view class="author-info"> 
+      <view class="name">{{postView.author.profile.username}}</view>
+      <view class="occupation">片中职位：{{postView.author.roles}}</view>
+     </view>
+       <view class="icon-more"><van-icon name="arrow" /></view>
+  </view>
+  <!-- 相似推荐 -->
+  <view class="recommend" wx:if="{{postView.relate_video}}">
+    <view wx:for="{{postView.relate_video}}" wx:key="index">
+      <view class="h3">{{item.name}}</view>
+      <scroll-view class="scroll-view_H" scroll-x="true">
+        <view class="card" wx:for="{{item.list}}" wx:for-index="idx" wx:for-item="card" wx:key="idx" data-recdata="{{card.postid}}" bindtap="navigateToPlay">
+          <image mode="widthFix" src= "{{card.image}}"></image>
+          <view class="content">
+            <view class="time">{{tools.parseTime(card.duration)}}</view>
+            <view class="title">{{card.title}}</view>
+          </view>
+        </view>
+      </scroll-view>
+  </view>
+  </view>
+  <!-- 评论 -->
+  <view class="comment-play" wx:if="{{postView.comment.list}}">
+    <view class="total">{{postView.comment.total}} 条评论</view>
+    <view class="comment-conten">
+      <comment-card  wx:for="{{postView.comment.list}}" wx:for-index="commentx" wx:for-item="commentcard" wx:key="commentx" commentData="{{commentcard}}"></comment-card>
+    </view>
+</view>
+<view class="end" wx:if="{{postView}}">-End-</view>
+<!-- 遮罩 -->
+	<van-overlay show="{{ show }}" bind:click="onClickHide">
+		<view class="wrapper">
+			<van-loading vertical color="#1989fa">加载中...</van-loading>
+		</view>
+	</van-overlay>
+</view>

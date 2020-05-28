@@ -1,0 +1,160 @@
+<!--pages/index/index.wxml-->
+<!-- 选项卡 -->
+<!-- <van-nav-bar safe-area-inset-top="{{false}}">
+  <van-icon name="search" slot="right" />
+	<van-icon name="circle" slot="left" />
+  <van-tabs sticky border="{{false}}" slot="title" active="{{ active }}"  color="#fff"  animated="{{true}}" bind:change="onChange">
+		<van-tab title="发现">
+		</van-tab >
+		<van-tab title="分类">
+			<van-grid column-num="2" border="{{ false }}" square>
+				<van-grid-item use-slot wx:for="{{cateList}}" wx:key="index" data-recdata="{{item.tab?item.tab:item.cateid}}" bindtap="routeToPostsList">
+					<image style="width:100%" fit="cover" src="{{item.icon}}" />
+          <view><text>{{item.catename}}</text></view>
+				</van-grid-item>
+			</van-grid>
+		</van-tab>
+		<van-tab title="我的">内容 3</van-tab>
+
+		<view class="serch-iocn"><van-icon name="search"/></view>
+		
+	</van-tabs>
+</van-nav-bar> -->
+<view class="index">
+	<van-tabs sticky swipeable border="{{false}}" active="{{ active }}" color="#fff" animated="{{true}}" bind:change="onChange">
+		<van-tab title="发现">
+			<!-- 发现 -->
+			<view class="find-box">
+				<!-- 轮播图 -->
+				<swiper class="swiper-find" indicator-dots="true" autoplay="true" circular="true" indicator-active-color="#fff">
+					<swiper-item wx:for="{{banner.list}}" wx:for-index="barIndex" wx:for-item="barlist" wx:key="barIndex" data-post="{{barlist}}" bindtap="navigateToPlay">
+						<image width="100%" fit="widthFix" src="{{barlist.image}}" />
+					</swiper-item>
+				</swiper>
+				<!-- 今日 -->
+				<index-Section wx:if="{{today}}" items="{{today.list}}">今日</index-Section>
+				<!-- 热门 -->
+				<index-Section wx:if="{{hot}}" items="{{hot.list}}" special="{{true}}">热门</index-Section>
+				<!-- 专题 -->
+				<index-Section wx:if="{{album}}" items="{{album.list}}">专题</index-Section>
+				<!-- posts -->
+				<index-Section wx:if="{{posts}}" items="{{posts.list}}">{{posts.selection_title}}</index-Section>
+				<!-- 历史 -->
+				<view wx:for="{{historyData}}" wx:for-index="hDIndex" wx:for-item="somedayData" wx:key="hDIndex">
+					<index-Section wx:if="{{somedayData}}" items="{{somedayData.list}}">{{somedayData.selection_title}}</index-Section>
+				</view>
+				<!-- 底部加载 -->
+				<view class="bottom-loading">
+					<van-loading size="18px" text-size="10px" color="#1989fa" wx:if="{{showLoading}}">加载中...</van-loading>
+				</view>
+			</view>
+		</van-tab>
+		<van-tab title="分类">
+			<!-- 分类 -->
+			<van-grid column-num="2" border="{{ false }}" square>
+				<van-grid-item use-slot wx:for="{{cateList}}" wx:key="index" data-recdata="{{item.tab?item.tab:item.cateid}}" bindtap="routeToPostsList">
+					<image style="width:100%" fit="cover" src="{{item.icon}}" />
+					<view><text>{{item.catename}}</text></view>
+				</van-grid-item>
+			</van-grid>
+		</van-tab>
+		<van-tab title="我的">
+			<!-- 我的 -->
+			<view class="me-box">
+				<view class="header-me">
+					<image width="100%" mode="widthFix" src="../../assets/image/splash.jpg" />
+					<view class="denglu">
+						<van-icon size="50px" name="https://b.yzcdn.cn/vant/icon-demo-1126.png" />
+						<view>点击登录</view>
+					</view>
+				</view>
+				<view class="content-me">
+
+					<view class="icon-line">
+						<view class="line-l">
+							<van-icon name="like-o" size="16px" />
+							<view class="title-line">我的喜欢</view>
+						</view>
+						<view class="line-r">
+							<van-icon name="arrow" />
+						</view>
+					</view>
+
+					<view class="icon-line">
+						<view class="line-l">
+							<van-icon name="down" size="16px" />
+							<view class="title-line">离线缓存</view>
+						</view>
+						<view class="line-r">
+							<van-icon name="arrow" />
+						</view>
+					</view>
+
+					<view class="icon-line">
+						<view class="line-l">
+							<van-icon name="clock-o" size="16px" />
+							<view class="title-line">播放历史</view>
+						</view>
+						<view class="line-r">
+							<van-icon name="arrow" />
+						</view>
+					</view>
+
+					<view class="icon-line">
+						<view class="line-l">
+							<van-icon name="smile-comment-o" size="16px" />
+							<view class="title-line">我的消息</view>
+						</view>
+						<view class="line-r">
+							<van-icon name="arrow" />
+						</view>
+					</view>
+				</view>
+				<view class="fooder-me">
+					<view class="icon-line">
+						<view class="line-l">
+							<van-icon name="setting-o" size="16px" />
+							<view class="title-line">设置</view>
+						</view>
+						<view class="line-r">
+							<van-icon name="arrow" />
+						</view>
+					</view>
+
+					<view class="icon-line">
+						<view class="line-l">
+							<van-icon name="edit" size="16px" />
+							<view class="title-line">问题反馈</view>
+						</view>
+						<view class="line-r">
+							<van-icon name="arrow" />
+						</view>
+					</view>
+				</view>
+			</view>
+		</van-tab>
+
+	</van-tabs>
+	<!-- 搜索 -->
+	<view class="serch-iocn" bindtap="routeToSearch">
+		<van-icon name="search" color="white" size="20px" />
+	</view>
+	<!-- 每日推荐好句子 -->
+	<view class="serch-circle" bindtap="routeToDayCover">
+		<view class="circle-icon">
+			<image width="100%" mode="widthFix" src="../../assets/icon/icon-calendar.png" />
+			<text class="day">{{Day}}</text>
+		</view>
+
+		<!-- <van-icon name="circle" color="white" size="20px" /> -->
+	</view>
+	<!-- 遮罩 -->
+	<van-overlay show="{{ show }}" bind:click="onClickHide">
+		<view class="wrapper">
+			<van-loading vertical color="#1989fa">加载中...</van-loading>
+		</view>
+	</van-overlay>
+</view>
+
+<!-- 在页面内添加对应的节点 -->
+<van-notify id="van-notify" />

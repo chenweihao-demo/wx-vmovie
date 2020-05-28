@@ -1,0 +1,28 @@
+/* components/indexSection/index.wxss */
+.section{
+  width: 100%;
+}
+.section .h3{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 18px 0;
+  color: white;
+  background-color: black;
+}
+.special {
+  display: flex;
+  flex-wrap: wrap; 
+}
+.special post-card {
+  width: 50%;
+  font-size: 12px;
+}
+.special post-card .info{
+  font-size: 12px;
+}
+
+.special post-card:first-of-type {
+  width: 100%;
+  font-size: 14px;
+}

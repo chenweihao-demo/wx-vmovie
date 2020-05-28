@@ -1,0 +1,18 @@
+/* components/postcard/index.wxss */
+
+.postitem {
+  position: relative;
+}
+
+.postitem image {
+  display: block;
+  width: 100%;
+  filter: brightness(0.6);
+}
+.postitem .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  color: white;
+}

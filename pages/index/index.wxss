@@ -1,0 +1,213 @@
+/* pages/index/index.wxss */
+.index {
+  background-color: black;
+  font-size: 14px;
+}
+
+/* 
+.van-nav-bar__left,
+.van-nav-bar__right {
+  z-index: 9;
+  color: white;
+}*/
+
+/* 选项卡 */
+.van-nav-bar .van-nav-bar__title {
+  width: 100%;
+  max-width: 100%;
+}
+
+.van-tabs__nav {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.van-tabs .van-tabs__scroll {
+  background: black;
+}
+
+.van-tab--active {
+  color: white !important;
+}
+
+/* 小图标 */
+.serch-iocn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  line-height: 52px;
+}
+
+.serch-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  line-height: 56px;
+}
+
+.serch-circle .circle-icon {
+  display: inline-block;
+  width: 50%;
+  height: 50%;
+  position: relative;
+}
+
+.serch-circle .circle-icon .day {
+  position: absolute;
+  top: -2px;
+  left: 5px;
+  font-size: 11px;
+  color: white;
+}
+
+.serch-circle .circle-icon image {
+  width: 100%;
+
+}
+
+/* 加载 */
+van-overlay .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.bottom-loading .van-loading {
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding: 5px 0;
+}
+
+/* 分类内容 */
+van-grid .van-grid-item__content--square {
+  padding: 0;
+}
+
+van-grid-item {
+  position: relative;
+}
+
+van-grid-item image {
+  filter: brightness(0.6);
+}
+
+van-grid-item view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+van-grid-item view text {
+  color: white;
+  font-weight: bold;
+}
+
+/* 发现 */
+.find-box {
+  width: 100%;
+}
+
+.find-box .swiper-find {
+  width: 100%;
+  height: 240px;
+}
+
+.find-box .swiper-find swiper-item image {
+  width: 100%;
+}
+
+/* 我的 */
+.me-box {
+  width: 100%;
+  height: 91vh;
+  background-color: black;
+}
+
+.me-box .header-me {
+  width: 100%;
+  height: 36%;
+  position: relative;
+}
+
+.me-box .header-me>image {
+  width: 100%;
+  filter: grayscale(100%);
+}
+
+.me-box .header-me .denglu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-45%, -60%);
+  color: white;
+  text-align: center;
+}
+
+.me-box .header-me .denglu .van-icon {
+  display: block;
+}
+
+.me-box .header-me .denglu .van-icon .van-icon__image {
+
+  border-radius: 50%;
+  background-color: white;
+}
+
+.icon-line {
+  width: 100%;
+  display: flex;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+.icon-line::before {
+  position: absolute;
+  z-index: 2;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  pointer-events: none;
+  box-sizing: border-box;
+  transform-origin: top left;
+  border: 0 solid rgba(0, 0, 0, 0.1);
+  transform: scale(0.333333);
+  border-bottom: 1px solid rgba(38, 38, 38, 0.796);
+  transform: scale(0.333333);
+}
+
+.icon-line .line-l {
+  flex: 1;
+  display: flex;
+}
+
+.icon-line .line-l .title-line {
+  display: inline-block;
+  padding-left: 12px;
+}
+
+.icon-line .line-r {
+  display: inline-block;
+  padding-top: 3px;
+}
+.fooder-me{
+  margin-top: 30px;
+}

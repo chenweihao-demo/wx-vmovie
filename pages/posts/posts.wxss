@@ -1,0 +1,9 @@
+/* pages/posts/posts.wxss */
+.van-loading{
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+}
+view {
+  font-size: 14px;
+}

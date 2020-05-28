@@ -1,0 +1,47 @@
+/* pages/DayCover/DayCover.wxss */
+.getDayCover{
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+.content-box{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color:white;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.top-box{
+  width: 100%;
+  height: 60%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.top-box .time {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+}
+.bottom-box{
+  width: 100%;
+  height: 40%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.bottom-box .title{
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.bottom-box .content{
+  font-size: 12px;
+  color: black;
+  white-space:pre-wrap;
+  line-height: 2em;
+}

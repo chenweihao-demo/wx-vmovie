@@ -1,0 +1,9 @@
+<!--components/postcard/index.wxml-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+<view class="postitem" data-post='{{post}}' bindtap="navigateToPlay">
+  <image width="100%" mode="widthFix" src="{{post.image}}" />
+  <view class="info">
+    <view>{{tools.parseCates(post.cates)}} / {{tools.parseTime(post.duration)}}</view>
+    <view>{{post.title}}</view>
+  </view>
+</view>

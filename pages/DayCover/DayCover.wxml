@@ -1,0 +1,16 @@
+<!--pages/DayCover/DayCover.wxml-->
+<view class="getDayCover" style="background-image:url({{dayCoverData.image_blurred}})">
+  <view class="content-box">
+    <view class="top-box" style="background-image:url({{dayCoverData.image}})">
+      <view class="time">
+        <view class="day">{{dayCoverData.time.day}}</view>
+        <view class="month">{{dayCoverData.time.month}}</view>
+        <view class="week">{{dayCoverData.time.week}}</view>
+      </view>
+    </view>
+    <view class="bottom-box">
+      <view class="title">{{dayCoverData.title}}</view>
+      <view class="content">{{dayCoverData.content}}</view>
+    </view>
+  </view>
+</view>
